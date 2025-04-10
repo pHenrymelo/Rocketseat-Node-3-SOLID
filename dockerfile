@@ -12,3 +12,4 @@ COPY . .
 EXPOSE 3333
 
 CMD ["./entrypoint.sh"]
+

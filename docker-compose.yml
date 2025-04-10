@@ -9,6 +9,7 @@ services:
       - POSTGRESQL_DATABASE=pgdb
     volumes:
       - pgdbdata:/var/lib/postgresql/data
+      
   app:
       build: .
       ports:
