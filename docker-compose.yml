@@ -7,3 +7,22 @@ services:
       - POSTGRESQL_USERNAME=docker
       - POSTGRESQL_PASSWORD=docker
       - POSTGRESQL_DATABASE=pgdb
+    volumes:
+      - pgdbdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    ports:
+      - '3333:3333'
+    depends_on:
+      - pgdb
+    environment:
+      - DATABASE_URL="postgresql://docker:docker@pgdb:5432/pgdb"
+      - NODE_ENV=dev
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+volumes:
+  pgdbdata:
