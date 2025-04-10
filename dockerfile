@@ -11,4 +11,5 @@ COPY . .
 
 EXPOSE 3333
 
-CMD [ "pnpm", "dev" ]
+CMD ["./entrypoint.sh"]
+
