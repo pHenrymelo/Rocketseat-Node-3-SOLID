@@ -7,8 +7,8 @@ import { z } from 'zod'
 export async function register(request: FastifyRequest, reply: FastifyReply) {
   const registerUserBodySchema = z.object({
     name: z.string(),
-    email: z.string(),
-    password: z.string(),
+    email: z.string().email(),
+    password: z.string().min(8),
   })
 
   const { name, email, password } = registerUserBodySchema.parse(request.body)
