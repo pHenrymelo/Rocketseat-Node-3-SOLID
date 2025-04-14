@@ -11,7 +11,7 @@
 - [ ] deve ser possivel o usuario buscar academias pelo nome;
 - [x] deve ser possivel o usuario realizar check-in em uma academia;
 - [ ] deve ser possivel validar o checkin de um usuario;
-- [ ] deve ser possivel cadastrar uma academia;
+- [x] deve ser possivel cadastrar uma academia;
 
 ## RNs
 
