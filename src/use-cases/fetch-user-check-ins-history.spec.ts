@@ -51,8 +51,6 @@ describe('Fetch User Check Ins Hystory use cases tests', () => {
       page: 2,
     })
 
-    console.log(checkIns)
-
     expect(checkIns).toHaveLength(2)
     expect(checkIns).toEqual([
       expect.objectContaining({
