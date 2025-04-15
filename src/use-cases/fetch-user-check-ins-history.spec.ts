@@ -24,9 +24,8 @@ describe('Fetch User Check Ins Hystory use cases tests', () => {
 
     const { checkIns } = await sut.execute({
       userId: 'user-1',
+      page: 1,
     })
-
-    console.log(checkIns)
 
     expect(checkIns).toHaveLength(2)
     expect(checkIns).toEqual([
@@ -35,6 +34,32 @@ describe('Fetch User Check Ins Hystory use cases tests', () => {
       }),
       expect.objectContaining({
         gym_id: 'gym-2',
+      }),
+    ])
+  })
+
+  it('should to be able to paginate the user check ins history', async () => {
+    for (let i = 1; i <= 22; i++) {
+      await checkInsRepository.create({
+        gym_id: `gym-${i}`,
+        user_id: 'user-1',
+      })
+    }
+
+    const { checkIns } = await sut.execute({
+      userId: 'user-1',
+      page: 2,
+    })
+
+    console.log(checkIns)
+
+    expect(checkIns).toHaveLength(2)
+    expect(checkIns).toEqual([
+      expect.objectContaining({
+        gym_id: 'gym-21',
+      }),
+      expect.objectContaining({
+        gym_id: 'gym-22',
       }),
     ])
   })
