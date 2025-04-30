@@ -26,6 +26,7 @@ export default (<Environment>{
 
     process.env.DATABASE_URL = databaseUrl
 
+    execSync('pnpm prisma generate')
     execSync('pnpm prisma migrate deploy')
     return {
       async teardown() {
