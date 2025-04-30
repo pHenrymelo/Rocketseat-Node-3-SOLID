@@ -2,7 +2,7 @@ import { app } from '@/app'
 import request from 'supertest'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
-describe('register (e2e) tests', () => {
+describe('authenticate (e2e) tests', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -10,7 +10,7 @@ describe('register (e2e) tests', () => {
     await app.close()
   })
 
-  it('shoud to be able to register', async () => {
+  it('shoud to be able to authenticate', async () => {
     await request(app.server).post('/users').send({
       name: 'jonny test',
       email: 'jonnytest@test.com',
