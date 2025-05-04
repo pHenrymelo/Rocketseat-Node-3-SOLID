@@ -27,12 +27,13 @@ describe('profile (e2e) tests', () => {
     const profileResponse = await request(app.server)
       .get('/me')
       .set('Authorization', `Bearer ${token}`)
-      .send()
 
     expect(profileResponse.statusCode).toEqual(200)
     expect(profileResponse.body).toEqual(
       expect.objectContaining({
-        email: 'jonnytest@test.com',
+        user: expect.objectContaining({
+          email: 'jonnytest@test.com',
+        }),
       }),
     )
   })

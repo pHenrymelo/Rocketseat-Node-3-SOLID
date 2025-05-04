@@ -18,7 +18,7 @@ services:
       depends_on:
         - pgdb
       environment:
-        - DATABASE_URL=postgresql://docker:docker@pgdb:5432/transactionsDB
+        - DATABASE_URL=postgresql://docker:docker@pgdb:5432/pgdb
         - NODE_ENV=dev
         - PORT=3333
         - JWT_SECRET=KaiserInc
