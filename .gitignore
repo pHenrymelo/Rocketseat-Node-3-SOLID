@@ -1,0 +1,11 @@
+node_modules
+
+build
+
+.env
+
+generated
+
+.pnpm-store
+
+coverage
