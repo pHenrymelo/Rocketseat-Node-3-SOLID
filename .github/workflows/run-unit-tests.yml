@@ -21,7 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+      
+      - name: Migrate DB
         run: pnpm prisma migrate deploy
+        
+      - name: Generate Client
         run: pnpm prisma generate
 
       - name: Run tests
